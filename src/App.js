@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import EventOption from "./component/EventOption";
+import Theme from "./component/Theme";
+import Calender from "./component/Calender";
+import Location from "./component/Location";
+import Main from "./component/Main";
 
-function App() {
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/event" exact element={<EventOption />} />
+          <Route path="/theme" exact element={<Theme />} />
+          <Route path="/calender" exact element={<Calender />} />
+          <Route path="/location" exact element={<Location />} />
+          <Route path="/" exact element={<Main />} />
+        </Routes>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
